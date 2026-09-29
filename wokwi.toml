@@ -1,0 +1,5 @@
+[wokwi]
+version = 1
+firmware = 'build/AgriSense-ESP32-MAJOR-CROPS.ino.bin'
+elf = 'build/AgriSense-ESP32-MAJOR-CROPS.ino.elf'
+rfc2217ServerPort = 4000

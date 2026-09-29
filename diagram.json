@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "author": "AgriSense",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": 20,
+      "left": 20,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "soil",
+      "top": -100,
+      "left": 350,
+      "attrs": {
+        "label": "SOIL MOISTURE",
+        "value": "512"
+      }
+    },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "light",
+      "top": 80,
+      "left": 350,
+      "attrs": {
+        "lux": "650"
+      }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "ph",
+      "top": 270,
+      "left": 350,
+      "attrs": {
+        "label": "SOIL pH",
+        "value": "512"
+      }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": -90,
+      "left": 620,
+      "attrs": {
+        "temperature": "29",
+        "humidity": "60"
+      }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay",
+      "top": 240,
+      "left": 620,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "red",
+      "top": -160,
+      "left": 880,
+      "attrs": {
+        "color": "red",
+        "label": "WARNING"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "redR",
+      "top": -100,
+      "left": 880,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "green",
+      "top": 10,
+      "left": 880,
+      "attrs": {
+        "color": "green",
+        "label": "NORMAL"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "greenR",
+      "top": 70,
+      "left": 880,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "pump",
+      "top": 200,
+      "left": 880,
+      "attrs": {
+        "color": "blue",
+        "label": "PUMP"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pumpR",
+      "top": 260,
+      "left": 880,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "buzzer",
+      "top": -240,
+      "left": 620,
+      "attrs": {
+        "volume": "0.5"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "esp:TX0",
+      "$serialMonitor:RX",
+      "",
+      []
+    ],
+    [
+      "esp:RX0",
+      "$serialMonitor:TX",
+      "",
+      []
+    ],
+    [
+      "soil:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "soil:GND",
+      "esp:GND.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "soil:SIG",
+      "esp:D34",
+      "orange",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "light:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "light:GND",
+      "esp:GND.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "light:AO",
+      "esp:D35",
+      "yellow",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "ph:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "ph:GND",
+      "esp:GND.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "ph:SIG",
+      "esp:D32",
+      "purple",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "dht:VCC",
+      "esp:3V3",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "dht:GND",
+      "esp:GND.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "dht:SDA",
+      "esp:D4",
+      "blue",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "relay:VCC",
+      "esp:VIN",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "relay:GND",
+      "esp:GND.2",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "relay:IN",
+      "esp:D26",
+      "orange",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "red:A",
+      "redR:1",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "redR:2",
+      "esp:D27",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "red:C",
+      "esp:GND.2",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "green:A",
+      "greenR:1",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "greenR:2",
+      "esp:D14",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "green:C",
+      "esp:GND.2",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "pump:A",
+      "pumpR:1",
+      "blue",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "pumpR:2",
+      "esp:D25",
+      "blue",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "pump:C",
+      "esp:GND.2",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "buzzer:1",
+      "esp:D13",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "buzzer:2",
+      "esp:GND.2",
+      "black",
+      [
+        "v0"
+      ]
+    ]
+  ],
+  "dependencies": {},
+  "serialMonitor": {
+    "display": "always",
+    "collapse": false,
+    "newline": "lf",
+    "convertEol": false
+  }
+}

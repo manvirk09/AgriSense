@@ -1,0 +1,2 @@
+AgriSense
+7 major crops: Rice, Wheat, Maize, Chickpea, Groundnut, Mustard, Soybean
